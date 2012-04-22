@@ -31,11 +31,19 @@ post '/' do
 	@link = Url.new(params) 
     @link.save
     if @link.save 
-        success = "<h1>success</h1>"
-        erb success 
+        @message = "success"
+        if request.xhr? 
+            erb :effect, :layout => true    
+        else
+            erb :effect, :layout => false    
+        end 
     else
-        failure = "<h1>failure</h1>"
-        erb failure 
+        @message = "failure"
+        if request.xhr?
+            erb :effect, :layout => true
+        else
+            erb :effect, :layout => false     
+        end
     end    
 end
 
