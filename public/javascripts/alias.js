@@ -1,7 +1,7 @@
 $(function() {
-    $("#submit").submit(function(event) {
+    $("#submit").submit(data, function(event) {
         event.preventDefault();
-        var postData = this.serialize();
+        var postData = data.serialize();
         $.ajax({
             url: '/',
             type: 'POST',
@@ -10,7 +10,7 @@ $(function() {
             success: function() {
                 alert('Ajaxed query:' + postData);
             },
-            failure: function() {
+            error: function() {
                 alert('screwed up!');
             }
         });

@@ -32,7 +32,7 @@ end
 
 
 get '/' do 
-    erb :index, :layout => :layout 
+    erb :index #, :layout => :layout 
 end
 
 post '/' do
