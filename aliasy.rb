@@ -5,7 +5,7 @@ require 'dm-migrations'
 require 'dm-validations'
 require 'dm-sqlite-adapter'
 
-DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/form.db")
+DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/urls.db") #there was my mistake! colon instead of dot.
 
 class Url
     include DataMapper::Resource
@@ -21,30 +21,22 @@ class Url
 end
 
 DataMapper.finalize
-
-before do
-    if request.xhr?
-        @ajax = true
-    else         
-        @ajax = false
-    end
-end
-
+DataMapper.auto_upgrade!
 
 get '/' do 
-    erb :index #, :layout => :layout 
+    erb :index
 end
 
 post '/' do
-	@link = Url.new(:address => params[:address], :suggestion=> params[:suggestion]) 
+	@link = Url.new(params) 
     @link.save
-    if @link.save
-        DataMapper.auto_upgrade!
-        erb :success , :layout => (!request.xhr? ? true : false)
-    else 
-        erb :failure
-    end   
-    
+    if @link.save 
+        success = "<h1>success</h1>"
+        erb success 
+    else
+        failure = "<h1>failure</h1>"
+        erb failure 
+    end    
 end
 
 get '/:suggestion' do 
