@@ -1,18 +1,20 @@
 $(function() {
-    $("#submit").submit(data, function(event) {
-        event.preventDefault();
-        var postData = data.serialize();
-        $.ajax({
-            url: '/',
-            type: 'POST',
-            dataType: 'html',
-            data: postData,
-            success: function() {
-                alert('Ajaxed query:' + postData);
-            },
-            error: function() {
-                alert('screwed up!');
-            }
-        });
-    })
+	$("#submit").click(function(event){
+		event.preventDefault(); // self-explanatory
+		var address = $("input#address").val();
+		var suggestion = $("input#suggestion").val();
+		var postData = 'address='+address+'&suggestion='+suggestion; 
+		$.ajax({
+		  url: '/',
+		  type: 'POST',
+		  dataType: 'html',
+		  data: postData,
+		  success: function(){
+		  	alert('Ajaxed!')
+		  },
+		  failure: function(){
+		  	alert('screwed up!');
+		  }
+		});	
+	})
 });

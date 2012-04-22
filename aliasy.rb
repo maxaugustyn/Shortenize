@@ -40,7 +40,7 @@ post '/' do
     @link.save
     if @link.save
         DataMapper.auto_upgrade!
-        erb :success , :layout => (request.xhr? ? true : false)
+        erb :success , :layout => (!request.xhr? ? true : false)
     else 
         erb :failure
     end   
