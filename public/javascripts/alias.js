@@ -10,7 +10,7 @@ $(function() {
           dataType: 'html',
           data: postData,
           success: function(){
-          	$.get('/effect',function(data){
+          	$.get('/',function(data){
           		$("#pane").append('<div class="alert-box warning">' + data +'</div>').hide().fadeIn(900);
           	})
           }
