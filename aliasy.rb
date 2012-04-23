@@ -23,6 +23,7 @@ end
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
+
 get '/' do 
     erb :index
 end
@@ -31,20 +32,14 @@ post '/' do
 	@link = Url.new(params) 
     @link.save
     if @link.save 
-        @message = "success"
-        if request.xhr? 
-            erb :effect, :layout => true    
-        else
-            erb :effect, :layout => false    
-        end 
+        @message = "success" 
     else
-        @message = "failure"
-        if request.xhr?
-            erb :effect, :layout => true
-        else
-            erb :effect, :layout => false     
+        @message += "failure"
+        @link.errors.each do |e|
+            @message.join(e)
         end
-    end    
+    end
+    erb @message, :layout => false    
 end
 
 get '/:suggestion' do 

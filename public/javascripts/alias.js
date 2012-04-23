@@ -9,10 +9,8 @@ $(function() {
           type: 'POST',
           dataType: 'html',
           data: postData,
-          success: function(){
-          	$.get('/',function(data){
-          		$("#pane").append('<div class="alert-box warning">' + data +'</div>').hide().fadeIn(900);
-          	})
+          success: function(data){
+          	$("#pane").append('<div class="alert-box warning">' + data +'</div>').hide().fadeIn(900);
           }
         });    
     });

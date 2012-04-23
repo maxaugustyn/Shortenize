@@ -41,7 +41,7 @@
 				<h1>Welcome to you beautiful Link cutter.</h1>
                 <p>How many times have you had a need to cut a link really fast? Now your dream comes true with our new and fancy link cutter. You don't believe us? Try and feel the power of this simple tool using <strong>Sinatra</strong>.</p>
 			</div>
-			<div class="two columns" id="pane">
+			<div class="two columns">
 				<form method="POST">
 					<label for="suggestion">
 					  <input name="suggestion" type="text" id="suggestion" placeholder="Enter suggested name for your shortcut." required>
@@ -50,9 +50,10 @@
 					  <input name="address" type="text" id="address" placeholder="Input URL of your website">
 					</label>			
 					<input type="submit" id="submission" class="large blue button">
-				</form>
-                <%= yield %>	
-			</div>	
+				</form>	
+				<div id="pane"></div>
+			</div>
+			<%= yield %>	
 		</div>	
 	</div>
 	<!-- container -->
