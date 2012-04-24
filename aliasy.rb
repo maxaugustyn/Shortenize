@@ -17,10 +17,9 @@ def random_str(size = 3)
     charset = %w{ 2 3 4 6 7 9 A C D E F G H J K M N P Q R T V W X Y Z}
     effect = (0...size).map{ charset.to_a[rand(charset.size)] }.join
     if effect == Url.first(:u_id => effect) #check if there is the same unique key in database 
-        size << 1
-        random_str(size) 
+        random_str(size += 1 ) 
     else
-        puts effect
+        effect
     end 
 end
 
@@ -51,7 +50,7 @@ get '/' do
 end
 
 post '/' do
-	@link = Url.new(params, :u_id => random_str) 
+	@link = Url.new(params) 
     @link.save
     @message = ""
     if @link.save 
