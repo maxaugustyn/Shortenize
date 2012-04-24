@@ -10,7 +10,7 @@ $(function() {
           dataType: 'html',
           data: postData,
           success: function(data){
-          	$("#pane").append('<div class="alert-box warning">' + data +'</div>').hide().fadeIn(900);
+          	$("#pane").html('<div class="alert-box warning">' + data +'</div>').hide().fadeIn(900);
           }
         });    
     });

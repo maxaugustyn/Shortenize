@@ -1,9 +1,16 @@
 require 'sinatra'
+require 'sinatra/reloader'
 require 'thin'
 require 'dm-core'
 require 'dm-migrations'
 require 'dm-validations'
 require 'dm-sqlite-adapter'
+
+class MyApp < Sinatra::Base
+    configure :development do 
+        register Sinatra::Reloader
+    end
+end
 
 DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/urls.db") #there was my mistake! colon instead of dot.
 
@@ -31,15 +38,15 @@ end
 post '/' do
 	@link = Url.new(params) 
     @link.save
+    @message = ""
     if @link.save 
-        @message = "success" 
+        @message = "This is your link:" + request.url + @link.suggestion  
     else
-        @message += "failure"
         @link.errors.each do |e|
-            @message.join(e)
+            @message << e.join
         end
     end
-    erb @message, :layout => false    
+    erb @message, :layout => !request.xhr? 
 end
 
 get '/:suggestion' do 
