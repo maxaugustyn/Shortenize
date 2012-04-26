@@ -11,7 +11,7 @@
 	<!-- Set the viewport width to device width for mobile -->
 	<meta name="viewport" content="width=device-width" />
 
-	<title>Welcome to Foundation</title>
+	<title>lyso.pl - link shortcuts.</title>
   
 	<!-- Included CSS Files -->
 	<link rel="stylesheet" href="stylesheets/foundation.css">
@@ -40,6 +40,7 @@
 			<div class="eight columns">
 				<h1>Welcome to you beautiful Link cutter.</h1>
                 <p>How many times have you had a need to cut a link really fast? Now your dream comes true with our new and fancy link cutter. You don't believe us? Try and feel the power of this simple tool using <strong>Sinatra</strong>.</p>
+				<div id="pane"></div>
 			</div>
 			<div class="two columns">
 				<form method="POST">
@@ -51,7 +52,6 @@
 					</label>			
 					<input type="submit" id="submission" class="large blue button">
 				</form>	
-				<div id="pane"></div>
 			</div>
 			<%= yield %>	
 		</div>	
@@ -63,9 +63,9 @@
 
 	<!-- Included JS Files -->
 	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-	<script src="javascripts/alias.js"></script> 
+	<script src="javascripts/scripts.js"></script> 
 	<script src="javascripts/foundation.js"></script>
-	<script src="javascripts/app.js"></script>
+	<!-- <script src="javascripts/app.js"></script> -->
 
 </body>
 </html>

@@ -51,16 +51,13 @@ end
 
 post '/' do
 	@link = Url.new(params) 
+    @link[:u_id] = random_str 
     @link.save
-    @message = ""
-    if @link.save 
-        @message = "This is your link:" + request.url + @link.suggestion  
+    if @link.save
+        erb :success, :layout => !request.xhr? 
     else
-        @link.errors.each do |e|
-            @message << e.join
-        end
+        erb :failure, :layout => !request.xhr? #How to DRY it down?
     end
-    erb @message, :layout => !request.xhr? 
 end
 
 

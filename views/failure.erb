@@ -1,7 +1,10 @@
-<strong>Unfortunately: 
-	<ul>
-		<% @link.errors.each do |error| %>
-		<%= error %>
-		<%end%>
-	</ul>
-</strong>
+
+<div class="alert-box error">
+	<strong>
+		<% @link.errors.each do |e| %>
+		<%= e.to_s[2..e.length-4] %>
+        <% end %> 
+         :(
+         <a href="" class="close">&times;</a>
+    </strong>
+</div> 
