@@ -4,10 +4,10 @@
 # $OPENSHIFT_INTERNAL_IP:8080
 
 # this will spawn a sub-shell, so make sure we can use rvm
-source $OPENSHIFT_DATA_DIR/.rvm/scripts/rvm
+source $OPENSHIFT_DATA_DIR.rvm/scripts/rvm
 
 # make sure we're in the app-dir so we use the right gemset
-cd $OPENSHIFT_REPO_DIR/[appname]
+cd $OPENSHIFT_REPO_DIR
 
 # start the thin server on the internal ip and port
 bundle exec unicorn 
