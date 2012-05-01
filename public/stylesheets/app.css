@@ -1,21 +1,37 @@
-/* Foundation v2.2.1 http://foundation.zurb.com */
-/* Artfully masterminded by ZURB  */
-
-/* -------------------------------------------------- 
-   Table of Contents
------------------------------------------------------
-:: Shared Styles
-:: Page Name 1
-:: Page Name 2
-*/
-
 
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
+#embellishment{
+	height:20px;
+	background-color:red;
+	margin: 0 auto 0 auto
+}
 
+#embellishment:nth-child(1){
+	background-color: #046037;
+	width:20%;
+}
 
+#embellishment:nth-child(2){
+	background-color: #8C8235;
+	width:20%;
+}
 
+#embellishment:nth-child(3){
+	background-color: #FFAD0D;
+	width:20%;
+}
+
+#embellishment:nth-child(4){
+	background-color: #FF0000;
+	width:20%;
+}
+
+#embellishment:nth-child(5){
+	background-color: #BD2409;
+	width:20%;
+}
 /* -----------------------------------------
    Page Name 1
 ----------------------------------------- */
