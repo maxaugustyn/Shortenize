@@ -12,13 +12,14 @@ $(function() {
           data: postData,
           success: function(data){
           	$(data).appendTo("#pane").hide().fadeIn(300);
+            console.log("Ajax successful!")
           }
         });    
     });
 });
 
 $(function(){
-  $("a.close:hover").click(function(){
-    $(this).parent().fadeOut(700);
+  $("a.close").on("click", function(event){
+    console.log(event.target);
   })
 })
