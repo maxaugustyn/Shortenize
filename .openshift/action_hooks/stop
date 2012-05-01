@@ -1,2 +1,4 @@
 #!/bin/bash
 # The logic to stop your application should be put in this script.
+# kill the server through the pidfile
+kill `cat -- $OPENSHIFT_REPO_DIR/a/tmp/pids/thin.pid`
