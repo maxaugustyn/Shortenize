@@ -4,8 +4,8 @@
 # it could be python, php, ruby, etc.
 
 # this will spawn a sub-shell, so make sure we can use rvm
-source $OPENSHIFT_DATA_DIR/.rvm/scripts/rvm
+source $OPENSHIFT_DATA_DIR.rvm/scripts/rvm
 
 # make sure our bundle is up to date
-cd $OPENSHIFT_REPO_DIR/[appname]
+cd $OPENSHIFT_REPO_DIRa
 bundle
