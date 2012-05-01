@@ -11,18 +11,18 @@ $(function() {
           dataType: 'html',
           data: postData,
           success: function(data){
-          	$(data).appendTo("#pane").hide().fadeIn(300);
+            $(data).appendTo("#pane").hide().fadeIn(300);
             console.log("Ajax successful!")
           }
         });    
     });
 });
 
-$(function(){
-  $("a.close").on("click", function(event){
-    event.preventDefault();
-    $(event.target).parent().fadeOut(500,function(){
-      $(this).parent();
+$(function() {
+    $(".alert-box").on("click", "a.close", function(event) {
+        event.preventDefault();
+        $(this).closest(".alert-box").fadeOut(function(event) {
+            $(this).remove();
+        });
     });
-  })
 })
