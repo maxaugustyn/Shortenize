@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
-require 'thin'
+require 'unicorn'
 require 'dm-core'
 require 'dm-migrations'
 require 'dm-validations'
