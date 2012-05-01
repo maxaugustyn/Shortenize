@@ -20,6 +20,9 @@ $(function() {
 
 $(function(){
   $("a.close").on("click", function(event){
-    console.log(event.target);
+    event.preventDefault();
+    $(event.target).parent().fadeOut(500,function(){
+      $(this).parent();
+    });
   })
 })
