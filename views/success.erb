@@ -3,6 +3,7 @@
 <div class="alert-box success">
 	Congratulations, your link:
 		<strong>
+
 	<% name = (request.url + @link.suggestion) %>
 	<% link = request.url + @link.suggestion %>	
 	<% id = request.url + @link.u_id %>
@@ -10,6 +11,6 @@
 	<%= '<a href="' + link + '">' + name[7...name.length] + '</a> or' %>
 		</strong>
 		 
-	<%= '<a href="' + id + '">' + id + '</a>' %>	
-		<a class="close">&times;</a>
+	<%= '<a href="' + id + '">' + id[7...id.length] + '</a>' %>	
+		<a href="#" class="close">&times;</a>
 </div> 

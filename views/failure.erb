@@ -1,10 +1,12 @@
 
 <div class="alert-box error">
 	<strong>
-		<% @link.errors.each do |e| %>
-		<%= e.to_s[2..e.length-4] %>
+		<% errors = @link.errors.full_messages %>
+		<% if errors.length == 1 || errors[0] == errors[1] %>
+        	<%= errors.first.to_s.capitalize + "." %>
+        <% else %>
+        	<%= errors.join(" and ").capitalize + ", anyways." %>	
         <% end %> 
-         :(
-         <a href="" class="close">&times;</a>
+         <a href="#" class="close">&times;</a>
     </strong>
 </div> 
