@@ -31,12 +31,12 @@ class Url
     property :id, Serial
     property :u_id, String, :unique => true
     property :address, String, :required => true, :format => :url, :messages => {
-        :format => "Not an URL",
-        :presence => "Can't be empty unless you bribe me."
+        :format => "not an URL",
+        :presence => "can't be empty unless you bribe me"
     } 
     property :suggestion, String,  :required => true, :unique => true, :messages => {
-        :presence => "Can't be empty unless you bribe me.",
-        :unique => "Someone else has been already using it."
+        :presence => "can't be empty unless you bribe me",
+        :unique => "someone else has been already using it"
     }
 end
 
