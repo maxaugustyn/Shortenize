@@ -5,10 +5,9 @@
 		<strong>
 
 	<% name = (request.url + @link.suggestion) %>
-	<% link = request.url + @link.suggestion %>	
 	<% id = request.url + @link.u_id %>
 
-	<%= '<a href="' + link + '">' + name[7...name.length] + '</a> or' %>
+	<%= '<a href="' + name + '">' + name[7...name.length] + '</a> or' %>
 		</strong>
 		 
 	<%= '<a href="' + id + '">' + id[7...id.length] + '</a>' %>	

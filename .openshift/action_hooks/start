@@ -10,4 +10,4 @@ source $OPENSHIFT_DATA_DIR/.rvm/scripts/rvm
 cd $OPENSHIFT_REPO_DIR/[appname]
 
 # start the thin server on the internal ip and port
-bundle exec thin start -d -a $OPENSHIFT_INTERNAL_IP -p $OPENSHIFT_INTERNAL_PORT -l $OPENSHIFT_LOG_DIR/thin.log
+bundle exec unicorn start -d -a $OPENSHIFT_INTERNAL_IP -p $OPENSHIFT_INTERNAL_PORT -l $OPENSHIFT_LOG_DIR/thin.log
