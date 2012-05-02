@@ -38,6 +38,7 @@ class Url
         :presence => "can't be empty unless you bribe me",
         :unique => "someone else has been already using it"
     }
+    # u_id != suggestion
 end
 
 DataMapper.finalize
@@ -61,11 +62,15 @@ post '/' do
 end
 
 
-get '/:suggestion' do 
-	redirection = Url.first(:suggestion => params[:suggestion])
-    if redirection
-	   redirect redirection[:address]
+get '/:shortcut' do 
+	if shortcut = Url.first(:suggestion => params[:shortcut])
+        shortcut
+    elsif shortcut = Url.first(:u_id => params[:shortcut])
+        shortcut
     else
-        redirect '/'
-    end       
+        shortcut = nil
+    end
+
+    if !shortcut.nil? then redirect shortcut[:address] end
+
 end
