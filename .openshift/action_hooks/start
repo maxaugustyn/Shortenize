@@ -12,5 +12,3 @@ cd $OPENSHIFT_REPO_DIR
 # start the thin server on the internal ip and port
 bundle exec unicorn -l $OPENSHIFT_INTERNAL_IP -D
 
-# start
-./start
