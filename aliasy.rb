@@ -1,16 +1,9 @@
 require 'sinatra'
-require 'sinatra/reloader'
 require 'unicorn'
 require 'dm-core'
 require 'dm-migrations'
 require 'dm-validations'
 require 'dm-sqlite-adapter'
-
-class MyApp < Sinatra::Base
-    configure :development do 
-        register Sinatra::Reloader
-    end
-end
 
 
 def random_str(size = 3)
