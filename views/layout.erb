@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="stylesheets/app.css">
 	<link rel="stylesheet" href="stylesheets/custom.css">
 	<link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 
 
 	<!--[if lt IE 9]>
@@ -37,9 +38,16 @@
 	<div class="container">
 		<div class="row">
 			<div class="eight columns">
+				<div id="logo">
+					<h1>
+						lyso.pl
+					</h1>
+				</div>
 				<h1>Finally cut your links, not yourself.</h1>
-                <p>How many times have you had a need to cut a link really fast? Now your dream comes true with our new and fancy link cutter. You don't believe us? Try and feel the power of this simple tool using <strong>Sinatra</strong>.</p>
-				<div id="pane"></div>
+                <p>How many times have you had a need to cut a link really fast? Now your dream comes true with our new and fancy link cutter. You don't believe us? Try and feel the power of this simple tool made using <strong>Sinatra</strong>.</p>
+				<div id="pane">
+					<%= yield %>
+				</div>
 			</div>
 			<div class="two columns">
 				<form method="POST">
@@ -52,7 +60,7 @@
 					<input type="submit" id="submission" class="large blue button">
 				</form>	
 			</div>
-			<%= yield %>	
+				
 		</div>	
 	</div>
 	
