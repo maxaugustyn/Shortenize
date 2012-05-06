@@ -23,14 +23,23 @@ class Url
     include DataMapper::Resource
     property :id, Serial
     property :u_id, String, :unique => true
-    property :address, String, :required => true, :format => :url, :messages => {
-        :format => "not an URL",
-        :presence => "can't be empty unless you bribe me"
-    } 
-    property :suggestion, String,  :required => true, :unique => true, :messages => {
-        :presence => "can't be empty unless you bribe me",
-        :unique => "someone else has been already using it"
-    }
+    property :address, String,
+        :required => true,
+        :format   => :url,
+        :messages => {
+            :format => "not an URL",
+            :presence => "can't be empty unless you bribe me"
+            
+        }
+        
+    property :suggestion, String, 
+             :required => true,
+             :unique   => true,
+             :messages => {
+                 :presence => "can't be empty unless you bribe me",
+                 :unique => "someone else has been already using it"
+             }
+             
     # u_id != suggestion
 end
 
@@ -56,7 +65,7 @@ end
 
 
 get '/:shortcut' do 
-	if shortcut = Url.first(:suggestion => params[:shortcut])
+    if shortcut = Url.first(:suggestion => params[:shortcut])
         shortcut
     elsif shortcut = Url.first(:u_id => params[:shortcut])
         shortcut
@@ -64,6 +73,5 @@ get '/:shortcut' do
         shortcut = nil
     end
 
-    if !shortcut.nil? then redirect shortcut[:address] end
-
+    redirect shortcug[:address] unless shortcut.nil?
 end
