@@ -1,16 +1,9 @@
 require 'sinatra'
-require 'sinatra/reloader'
 require 'unicorn'
 require 'dm-core'
 require 'dm-migrations'
 require 'dm-validations'
 require 'dm-sqlite-adapter'
-
-class MyApp < Sinatra::Base
-    configure :development do 
-        register Sinatra::Reloader
-    end
-end
 
 
 def random_str(size = 3)
@@ -30,6 +23,7 @@ class Url
     include DataMapper::Resource
     property :id, Serial
     property :u_id, String, :unique => true
+<<<<<<< HEAD
     property :address, String, :required => true, :format => :url, :messages => {
         :format => "not an URL",
         :presence => "can't be empty unless you bribe me"
@@ -39,6 +33,26 @@ class Url
         :unique => "someone else has been already using it"
     }
 
+=======
+    property :address, String,
+        :required => true,
+        :format   => :url,
+        :messages => {
+            :format => "not an URL",
+            :presence => "can't be empty unless you bribe me"
+            
+        }
+        
+    property :suggestion, String, 
+             :required => true,
+             :unique   => true,
+             :messages => {
+                 :presence => "can't be empty unless you bribe me",
+                 :unique => "someone else has been already using it"
+             }
+             
+    # u_id != suggestion
+>>>>>>> e96921a3d48ee654787af60a35aaaa42a10e0b4c
 end
 
 DataMapper.finalize
@@ -65,16 +79,20 @@ end
 
 
 get '/:shortcut' do 
-	if shortcut = Url.first(:suggestion => params[:shortcut])
+    if shortcut = Url.first(:suggestion => params[:shortcut])
         shortcut
     elsif shortcut = Url.first(:u_id => params[:shortcut])
         shortcut
     end
 
+<<<<<<< HEAD
     if !shortcut.nil?
         redirect shortcut[:address]
     else
         erb :not_found
     end
 
+=======
+    redirect shortcug[:address] unless shortcut.nil?
+>>>>>>> e96921a3d48ee654787af60a35aaaa42a10e0b4c
 end
